@@ -20,7 +20,7 @@ public class PiedraPapelTijera {
         
         int i =1;
         
-        while(i<=5) {
+        while(i<=6) {
             int jugador = tirada_jugador();
 //          System.out.println(jugador);
         
@@ -132,15 +132,16 @@ public class PiedraPapelTijera {
             System.out.println("Ha ganado el jugador --> " + resultado);
         }else {
             System.out.println("Ha ganado el ordenador --> " + resultado);
-        }
-        
-
+        }      
     }
+    
+    
     
 //    public static void marcador(int resultado) {
 //        
 //        int puntosJugador = 0;
 //        int puntosOrdenador = 0;
+//        int empates = 0;
 //
 //        while(puntosJugador<=3 || puntosOrdenador<=3) {
 //            if(resultado==1){
@@ -148,7 +149,7 @@ public class PiedraPapelTijera {
 //            }else if(resultado==2) {
 //                puntosOrdenador++;
 //            }else if(resultado == 0){
-//                System.out.println("empate");
+//                empates++;
 //            }
 //        }
 //
