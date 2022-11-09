@@ -32,6 +32,10 @@ public class FuncionesConString {
         int numVocal = contVocales(palabra);
         System.out.println("El numero de vocales es " + numVocal);
         
+        int numCaracteres = contarCaracteres(palabra, 'a');
+        System.out.println("Hay " + numCaracteres);
+        
+        eliminaEspacio(palabra);
     }
     
     public static int numDeCaracteres(String frase) {        
@@ -66,13 +70,27 @@ public class FuncionesConString {
     public static int contVocales(String frase) {
         int count = 0;
         for (int i = 0; i < frase.length(); i++) {
-            // check if char[i] is vowel
             if (frase.charAt(i) == 'a' || frase.charAt(i) == 'e' || frase.charAt(i) == 'i' || frase.charAt(i) == 'o' || frase.charAt(i) == 'u') {
-
                 count++;
             }
         }
         
         return count;
+    }
+
+    public static int contarCaracteres(String palabra, char caracter) {
+        int posicion, contador = 0;
+        posicion = palabra.indexOf(caracter);
+        while (posicion != -1) {
+            contador++;           
+            posicion = palabra.indexOf(caracter, posicion + 1);
+        }
+        return contador;
+    }
+    
+    public static void eliminaEspacio(String palabra) {
+        String palabraReplaced = palabra.replace(" ", "");
+        
+        System.out.println(palabra + "-->" + palabraReplaced);
     }
 }
