@@ -70,7 +70,11 @@ public class FuncionesConString {
     public static int contVocales(String frase) {
         int count = 0;
         for (int i = 0; i < frase.length(); i++) {
-            if (frase.charAt(i) == 'a' || frase.charAt(i) == 'e' || frase.charAt(i) == 'i' || frase.charAt(i) == 'o' || frase.charAt(i) == 'u') {
+            if (frase.charAt(i) == 'a' || frase.charAt(i) == 'A' ||
+                    frase.charAt(i) == 'e' || frase.charAt(i) == 'E' || 
+                    frase.charAt(i) == 'i' || frase.charAt(i) == 'I' || 
+                    frase.charAt(i) == 'o' || frase.charAt(i) == 'O' || 
+                    frase.charAt(i) == 'u' || frase.charAt(i) == 'U') {
                 count++;
             }
         }
@@ -93,4 +97,6 @@ public class FuncionesConString {
         
         System.out.println(palabra + "-->" + palabraReplaced);
     }
+    
+    
 }
