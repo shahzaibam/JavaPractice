@@ -4,6 +4,7 @@
  */
 package taxifunction;
 
+import java.time.LocalDate;
 import java.time.Year;
 import java.util.Scanner;
 
@@ -14,34 +15,79 @@ import java.util.Scanner;
 public class taxifunction {
 
     public static void main(String[] args) {
+        
+
+        checkDateToGo(0,0,0);
+        
+        
+    }
+    
+    public static void checkDateToGo(int dia, int mes, int any) {
+        
         Scanner sc = new Scanner(System.in);
         
-        String ida;
-        String vuelta;
-        String url;
+        LocalDate localDate = LocalDate.now();
+        int currentYear = localDate.getYear();
+        int currentMonth = localDate.getMonthValue();
+        int currentDate = localDate.getDayOfMonth();
         
-        System.out.println("Pon el dia que quieres viajar");
-        int dia = sc.nextInt();
-        System.out.println("Pon el mes que quieres viajar");
-        int mes = sc.nextInt();
-        System.out.println("Pon el año que quieres viajar");
-        int any = sc.nextInt();
+        System.out.println("year is " + currentYear);
+        System.out.println("month is " + currentMonth);
+        System.out.println("date is " + currentDate);
         
-        int year = Year.now().getValue();
-        System.out.println(year);
+        do{
+            System.out.println("que dia quieres viajar");
+            dia = sc.nextInt();
+        }while(!(dia>=currentDate || dia<=currentDate));
         
-        getDate(dia, mes, any, year);
         
-        System.out.println("De donde quieres que te recogamos");
-        ida = sc.nextLine();
+        do{
+            System.out.println("que mes quieres viajar");
+            mes = sc.nextInt();
+        }while(!(mes>=currentMonth && mes<=currentMonth));
         
-        System.out.println("Donde quieres que te dejemos");
-        vuelta = sc.nextLine();
+        currentYear = any;
         
-        url = "https://barcelonapickup.es/";
+        System.out.println("el año es " + any);
         
-        System.out.println(url);
+        boolean correcto = true;
         
+        if(mes<=0 || mes>12) {
+             System.out.println("Has puesto " + mes + " este mes no existe");
+             correcto = false;
+        }else{
+            correcto = true;
+        }
+        
+        if(mes == 2){
+            if(dia<=0 || dia>28){
+             System.out.println("Has puesto " + dia + " este mes no tiene tantos dias");
+             correcto = false;
+            }else{
+                correcto = true;
+            }
+        }else if(mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12){
+            if(dia<=0 || dia>31) {
+                System.out.println("Has puesto " + dia + " este mes no tiene tantos dias");
+                correcto = false;
+            }else{
+                correcto = true;
+            }
+        }else if(mes == 4 || mes == 6 || mes == 9 || mes == 11){
+            if(dia<=0 || dia>30){
+                System.out.println("Has puesto " + dia + " este mes no tiene tantos dias");
+                correcto = false;
+            }else{
+                correcto = true;
+            }
+        }
+
+        
+        if(correcto==true) {
+            System.out.println("el dia que quieres viajar es " + dia + "/"  + mes  + "/" + any);
+        }
+        
+
     }
     
     public static String getDate(int dia, int mes, int any, int year) {
