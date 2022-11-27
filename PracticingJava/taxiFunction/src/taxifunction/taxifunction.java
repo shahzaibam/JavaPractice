@@ -5,7 +5,6 @@
 package taxifunction;
 
 import java.time.LocalDate;
-import java.time.Year;
 import java.util.Scanner;
 
 /**
@@ -15,11 +14,9 @@ import java.util.Scanner;
 public class taxifunction {
 
     public static void main(String[] args) {
-        
 
         checkDateToGo(0,0,0);
-        
-        
+
     }
     
     public static void checkDateToGo(int dia, int mes, int any) {
