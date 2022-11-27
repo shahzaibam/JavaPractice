@@ -38,8 +38,8 @@ public class PracticandoRecursividad {
 //        System.out.println(numVirus);
         
 //        System.out.println("hasta que numero quieres sumar");
-        System.out.println("escribe un num");
-        int num = sc.nextInt();
+//        System.out.println("escribe un num");
+//        int num = sc.nextInt();
 //        int total = sumaNnums(num);
 //        
 //        System.out.println(" = " + total);
@@ -58,9 +58,12 @@ public class PracticandoRecursividad {
 //        String frase = recorrerPalabra("hello");
 //        System.out.println(frase);
 
-        int genNum = generarCantidadNum(num);
-        System.out.println(genNum);
+//        int genNum = generarCantidadNum(num);
+//        System.out.println(genNum);
         
+//        maximComuDivisor(36);
+        
+        numNaturalaBinario(24);
 
     }
     
@@ -203,6 +206,38 @@ public class PracticandoRecursividad {
         return numAl;
 
         
+    }
+    
+    public static void maximComuDivisor(int num) {
+        if(num == 0) {
+            System.out.println(0);
+        }else if(num == 1) {
+            System.out.println(0);
+        }else if(num>1) {
+            if(num%2 == 0) {
+                System.out.println(num/2 + " --> 2 ");
+                maximComuDivisor(num/2);
+            }else if(num%3 == 0) {
+                System.out.println(num/3 + " --> 3 ");
+                maximComuDivisor(num/3);
+            }else {
+                System.out.println(num/num);
+            }
+            
+        }
+        
+    }
+    
+    public static void numNaturalaBinario(int num) {
+        if(num<2) {
+            System.out.print(1);
+        }else if(num>2) {
+            numNaturalaBinario(num/2);
+            System.out.print(num%2);
+            
+
+            
+        }
     }
     
     
