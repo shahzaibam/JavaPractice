@@ -64,7 +64,15 @@ public class PracticandoRecursividad {
 //        maximComuDivisor(36);
         
         numNaturalaBinario(24);
-
+        
+        System.out.println("con que base quieres hacer la operacion");
+        int base = sc.nextInt();
+        
+        System.out.println("con que potencia quieres hacer la operacion");
+        int potencia = sc.nextInt();
+        
+        double operacion = potenciaDeNum(base,potencia);
+        System.out.println(operacion);
     }
     
 //    public static int factorial(int num) {
@@ -234,11 +242,16 @@ public class PracticandoRecursividad {
         }else if(num>2) {
             numNaturalaBinario(num/2);
             System.out.print(num%2);
-            
-
-            
         }
     }
-    
-    
+  
+    public static double potenciaDeNum(int b, int p) {
+        if(p==1) {
+            return b;
+        }else if(p>1) {
+            return b*potenciaDeNum(b, p-1);
+        }
+        
+        return -1;
+    }
 }
