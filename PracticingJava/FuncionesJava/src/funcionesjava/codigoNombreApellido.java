@@ -44,10 +44,6 @@ public class codigoNombreApellido {
         for (int i = 0; i <= 2; i++) {
             codigoNom[i+6] = apellidoDos.charAt(i);
         }
-//        
 
-//            codigoNom[3] = apellido.charAt(0);
-//            codigoNom[4] = apellido.charAt(1);
-//            codigoNom[5] = apellido.charAt(2);
     }
 }
