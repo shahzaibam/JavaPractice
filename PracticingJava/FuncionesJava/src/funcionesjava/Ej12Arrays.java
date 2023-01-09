@@ -59,6 +59,7 @@ public class Ej12Arrays {
         posicion = sc.nextInt();
         
         return num[posicion] = valor;
+        
     }
     
     
