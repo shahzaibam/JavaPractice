@@ -35,7 +35,7 @@ public class Conecta4 {
         System.out.println("el inicio lo hará " + inicio);
         
         mostrarTauler(tablero);
-        FitxaVisual(tablero, FILAS, COLUMNAS);
+//        FitxaVisual(tablero, FILAS, COLUMNAS);
         
     }
     

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package arraysbidimensionals;
+package arraysbidimensional;
 
 import java.util.Scanner;
 
@@ -72,6 +72,7 @@ public class AtacsPokemon {
 
         mostrarImpacto(tiposPokemon, efectividadesPokemon);
 
+        mostrarDanyoPokemon(tiposPokemon, efectividadesPokemon);
 
     }
 
@@ -106,8 +107,7 @@ public class AtacsPokemon {
             }else if(pokemon2.equalsIgnoreCase(tiposPokemon[i])) {
                 pokemonid2 = i;
             }
-            
-            
+  
         }
         
         System.out.println("pokemon 1 es " + (pokemonid1));       
@@ -115,7 +115,22 @@ public class AtacsPokemon {
         
         System.out.println("El ataque es de " + efectividadesPokemon[pokemonid1][pokemonid2]);
 
-
+    }
+    
+    public static void mostrarDanyoPokemon(String[] tiposPokemon, double[][] efectividadesPokemon) {
+        Scanner sc = new Scanner(System.in);
+        String pokemonNombre = "";
+        System.out.println("De que Pokemon quieres saber el danyo");
+        pokemonNombre = sc.next();
+        
+        for (int i = 0; i < tiposPokemon.length; i++) {
+            if (pokemonNombre.equalsIgnoreCase(tiposPokemon[i])) {
+                for (int j = 0; j < efectividadesPokemon.length; j++) {
+                    System.out.println(efectividadesPokemon[j][i]);
+                }
+            }
+  
+        }
     }
 
 }
