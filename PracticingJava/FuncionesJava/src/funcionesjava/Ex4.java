@@ -36,34 +36,34 @@ public class Ex4 {
             }
             System.out.println("");
         }
-//
-//        int minima;
-//        int maxima;
-//        int mitjana;
-//        for (int i = 0; i < ALUMNOS; i++) { //files
-//
-//            minima = notas_alumnos[i][0];
-//            maxima = notas_alumnos[i][4];
-//            mitjana = 0;
-//            int suma = 0;
-//            for (int j = 0; j < NOTAS; j++) { //columna per obtenir alumne
-//                if (minima > notas_alumnos[i][j]) {
-//                    minima = notas_alumnos[i][j];
-//                }
-//
-//                if (maxima < notas_alumnos[i][j]) {
-//                    suma = notas_alumnos[i][j];
-//                }
-//
-//                mitjana = mitjana + suma;
-//                System.out.println("mitjaaaana  = " + mitjana);
-//
-//            }
-//            //aqui han acabat les notes del alummne i
-//            System.out.println("La nota minima de " + (i + 1) + " es " + minima);
-//            System.out.println("La nota MAXIMA de " + (i + 1) + " es " + maxima);
-//            System.out.println("La nota MITJANA de " + " es " + (mitjana / 20));
-//        }
+
+        int minima;
+        int maxima;
+        int mitjana;
+        for (int i = 0; i < ALUMNOS; i++) { //files
+
+            minima = notas_alumnos[i][0];
+            maxima = notas_alumnos[i][4];
+            mitjana = 0;
+            int suma = 0;
+            for (int j = 0; j < NOTAS; j++) { //columna per obtenir alumne
+                if (minima > notas_alumnos[i][j]) {
+                    minima = notas_alumnos[i][j];
+                }
+
+                if (maxima < notas_alumnos[i][j]) {
+                    suma = notas_alumnos[i][j];
+                }
+
+                mitjana = mitjana + suma;
+                System.out.println("mitjaaaana  = " + mitjana);
+
+            }
+            //aqui han acabat les notes del alummne i
+            System.out.println("La nota minima de " + (i + 1) + " es " + minima);
+            System.out.println("La nota MAXIMA de " + (i + 1) + " es " + maxima);
+            System.out.println("La nota MITJANA de " + " es " + (mitjana / 20));
+        }
 
         Scanner sc = new Scanner(System.in);
         System.out.println("De que alumno quieres saber la nota");
