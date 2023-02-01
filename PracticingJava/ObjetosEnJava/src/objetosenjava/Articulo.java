@@ -57,4 +57,12 @@ public class Articulo {
     public void getPVPDescuento(Articulo ej, double descuento) {
         this.precio = this.precio - descuento;
     }
+    
+    public void vender(Articulo ej) {
+        
+    }
+    
+    public void almacenar(Articulo ej) {
+        
+    }
 }
