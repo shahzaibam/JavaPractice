@@ -100,7 +100,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + " Su nombre es " + nombre + ", su edad es" + edad + ", su DNI es " + DNI + ", su sexo es " + sexo + ", su peso es " + peso + ", su altura es " + altura + '}';
+        return  nombre + ", edad es " + edad + ", sexo es " + sexo + ", peso es " + peso + ", altura es " + altura;
     }
     
     public void generaDNI() {
