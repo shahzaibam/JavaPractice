@@ -19,12 +19,6 @@ public class Veri extends Pokemon {
         this.CP = 40;
 
         this.defensa = false;
-//        if (this.CP > 15) {
-//            this.defensa = true;
-//
-//        } else {
-//            this.defensa = false;
-//        }
 
     }
 
