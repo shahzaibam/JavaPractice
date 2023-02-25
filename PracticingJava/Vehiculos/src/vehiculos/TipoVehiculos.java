@@ -9,7 +9,7 @@ package vehiculos;
  * @author shebi
  */
 public enum TipoVehiculos {
-    TURISMO("Hyundai", 2018), CAMION("PEUGEOT", 2007), MOTO("KAWASAKI", 2019);
+    TURISMO("HYUNDAI", 2018), CAMION("PEUGEOT", 2007), MOTO("HONDA", 2019);
     
     protected String marca;
     protected int modelo;
