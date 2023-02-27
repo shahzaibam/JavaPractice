@@ -22,11 +22,6 @@ public class JugarEquipo extends PartidoEquipo{
     public String diaPartido(String fecha, String hora) {
         String frase  = "";
         Scanner sc = new Scanner(System.in);
-//        System.out.println("de que equipo quieres saber ?");
-//        String resp;
-//        
-//        resp = sc.next();
-//        
         if(this.fecha == "30/08/2023" && this.hora == "17:00") {
             frase = "El " + equipo.FCBARCELONA + "\nJuega contra el " + equipo.REALMADRID + " el dia " + this.fecha + " a las " + this.hora;
         }else if(this.fecha == "01/07/2023" && this.hora == "16:00") {
