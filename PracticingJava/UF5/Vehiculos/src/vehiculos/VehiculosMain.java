@@ -14,13 +14,7 @@ public class VehiculosMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Vehiculos primer = new ComprobarVehiculo();
-        TipoVehiculos hyundai = TipoVehiculos.TURISMO;
-        
-        System.out.println(hyundai);
-        primer.comprobarVehiculo();
-        
-        System.out.println(primer);
+        // TODO code application logic here
     }
     
 }

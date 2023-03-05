@@ -9,17 +9,13 @@ package vehiculos;
  * @author shebi
  */
 public abstract class Vehiculos {
-    protected String nombre;
+    protected String matricula;
     protected int modelo;
-    protected TipoVehiculos tipoVehiculo;
 
-    protected abstract void comprobarVehiculo();
-
-    @Override
-    public String toString() {
-        return "Vehiculo --> " + "nombre es " + nombre + " y modelo es" + modelo;
+    public Vehiculos(String matricula, int modelo) {
+        this.matricula = matricula;
+        this.modelo = modelo;
     }
-    
     
     
 }
