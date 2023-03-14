@@ -8,7 +8,7 @@ package Objectes;
  *
  * @author mabardaji
  */
-public class Cromo {
+public class Cromo implements Comparable<Cromo>{
     private int num;
     private String descripcio_cromo;
 
@@ -76,6 +76,14 @@ public class Cromo {
     @Override
     public String toString() {
         return "Cromo " + "num=" + num + ", descripcio_cromo=" + descripcio_cromo ;
+    }
+
+    @Override
+    public int compareTo(Cromo o) {    
+        return (this.getNum() - o.getNum());
+        
+        //si la ordenacio fos per un string fariem aixo
+        //return this.descripcio_cromo.compareTo(o.getDescripcio_cromo());
     }
     
     

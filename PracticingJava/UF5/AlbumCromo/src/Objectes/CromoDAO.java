@@ -5,6 +5,7 @@
 package Objectes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,14 +20,19 @@ public class CromoDAO {
     //estructura enmagatzermatge
     //
 
-    List<Cromo> album;
-    List<Cromo> repes;
+    private List<Cromo> album;
+    private List<Cromo> repes;
     int num_max_coleccio; //quants cromos hi ha
+    private boolean ordenado;
+    private boolean ordenadoRepes;
 
     public CromoDAO(int max) {
         album = new ArrayList<Cromo>();
         repes = new ArrayList<Cromo>();
+
         num_max_coleccio = max;
+        ordenado = false;
+        ordenadoRepes = false;
     }
 
     //no scanner i tamb� els sout
@@ -38,15 +44,17 @@ public class CromoDAO {
      */
     public boolean afegirCromo(Cromo cromo_add) throws NumberOutofAlbum {
         if (this.num_max_coleccio < cromo_add.getNum()) {
-            throw new NumberOutofAlbum("Cromo no es de la col�leci�");
+            throw new NumberOutofAlbum("Cromo no es de la coleccio");
         }
 
         if (!album.contains(cromo_add)) {
             album.add(cromo_add);
+            ordenado = false;
             return true;
             //sout no porque esta prohibido MVC
         } else {
             repes.add(cromo_add);
+            ordenadoRepes = false;
             return false;
         }
 
@@ -68,10 +76,6 @@ public class CromoDAO {
 
     }
 
-    public void removeCardRepes(Cromo del) {
-        repes.remove(del);
-    }
-
     public boolean isAlbum(Cromo add) {
         return album.contains(add);
     }
@@ -86,10 +90,19 @@ public class CromoDAO {
     //buscar
     //retornar colecci�
     public List<Cromo> getAlbum() {
+        if (!ordenado) {
+            Collections.sort(album);
+            ordenado = true;
+        }
+
         return album;
     }
 
     public List<Cromo> getRepes() {
+        if (!ordenadoRepes) {
+            Collections.sort(repes);
+            ordenadoRepes = true;
+        }
         return repes;
     }
 
@@ -103,38 +116,6 @@ public class CromoDAO {
 
     public int getNumRepes() {
         return repes.size();
-    }
-
-    public void mostrarAlbum() {
-        for (int i = 0; i < this.album.size(); i++) {
-            System.out.println(this.album.get(i));
-        }
-    }
-
-    public void mostrarRepes() {
-        for (int i = 0; i < this.repes.size(); i++) {
-            System.out.println(this.repes.get(i) + " repesss");
-        }
-    }
-
-    public boolean comprobar_al_Album(Cromo newCard) {
-        for (int i = 0; i < this.album.size(); i++) {
-            if (this.album.get(i).equals(newCard)) {
-                System.out.println("esto es igual!!!!!!!!!!!1");
-                return true;
-
-            }
-        }
-        return false;
-    }
-
-    public boolean comprobar_al_Repes(Cromo oldCard) {
-        for (int i = 0; i < this.repes.size(); i++) {
-            if (this.repes.get(i).equals(oldCard)) {
-                return true;
-            }
-        }
-        return false;
     }
 
 }

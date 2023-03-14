@@ -12,6 +12,7 @@ import Objectes.CromoDAO;
 import Objectes.DescriptionTooShort;
 import Objectes.NumberOutofAlbum;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,19 +87,13 @@ public class AlbumCromos {
 
                     break;
                 case 4://Listar
-                    album.mostrarAlbum();
-                    album.mostrarRepes();
-                    //getAlbum
-                    //recorrer array list devuelto
-                    //mostrar el numero de cromos listado
+                    listadoAlbum(album);
+                    System.out.println("repetidos---");
+                    listadoCromosRepetidos(album);
                     break;
                 case 5: {
-                    try {
-                        //Canviar cromos
-                        canviarCromos(album);
-                    } catch (NumberOutofAlbum ex) {
-                        System.out.println(ex.getMessage());
-                    }
+                    canviarCromos(album);
+                    break;
                 }
 
                 //getAlbum
@@ -109,6 +104,11 @@ public class AlbumCromos {
                     break;
             }
 
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                System.out.println("Sleep exception" + ex.getMessage());
+            }
         } while (option != 1);
 
     }
@@ -212,34 +212,80 @@ public class AlbumCromos {
 
     }
 
-    private void canviarCromos(CromoDAO album) throws NumberOutofAlbum  {
-        //demanar cromo obtens (NOU CROMO)
-        Cromo new_card;
-        //demanar dades del que dones (CROMO VELL)
-        System.out.println("Ahora el cromo que quieres dar");
-        Cromo old_card;
-        //comprovar que no tinc el nou al album , si ho tinc true, si no hi tinc false
-
-//        boolean tinc_nou_al_album;
-//        do {
-        System.out.println("ESCRIBE EL NUEVO CROMO");
-        new_card = pedirCromo();
-//            tinc_nou_al_album = album.comprobar_al_Album(new_card);
-        album.comprobar_al_Album(new_card);
-//        } while (!tinc_nou_al_album);
-
-        //comprovar que SI TINC ALS REPES el vell, si ho tinc repe true, si no ho tinc false
-        System.out.println("ESCRIBE EL CROMO REPETIDO QUE QUIERES DAR");
-        old_card = CrearCromoUsuario();
-        boolean tinc_el_repetit = album.comprobar_al_Repes(old_card);
-
-        if (tinc_el_repetit) {
-            album.removeCardRepes(old_card);
-            album.afegirCromo(new_card);
-            System.out.println("Els cromos se han canviat");
-        }else{
-            System.out.println("INCORRECTO");
+    public void listadoAlbum(CromoDAO album) {
+        List<Cromo> nuevos_album = album.getAlbum();
+        for (Cromo cromo : nuevos_album) {
+            System.out.println(cromo);
         }
+        System.out.println("Cromos en el album " + album.getNumAlbum());
     }
 
+    public void listadoCromosRepetidos(CromoDAO album) {
+        List<Cromo> nuevos_album = album.getRepes();
+        for (Cromo cromo : nuevos_album) {
+            System.out.println(cromo);
+        }
+        System.out.println("------------------------");
+        System.out.println("Cromos en el album repetido " + album.getNumRepes());
+    }
+
+    private void canviarCromos(CromoDAO album) {
+        System.out.println("Que cromo quieres");
+        Cromo new_card = CrearCromoUsuario();
+
+        System.out.println("Ahora el cromo que quieres dar");
+        Cromo old_card = CromoCrearRepes();
+
+        if (!album.isAlbum(new_card) && album.isRepes(old_card)) {
+            try {
+                if (album.afegirCromo(new_card)) {
+                    System.out.println("cromo añadido num = " + new_card.getNum());
+                }
+
+                if (album.removeCard(old_card) == 0) {
+                    System.out.println("cromo eliminado de repes num = " + old_card.getNum());
+                }
+            } catch (NumberOutofAlbum ex) {
+                System.out.println("cromo no pertence al album");
+            }
+
+        } else {
+            System.out.println("no puedo hacer el cammbio" + " porque no tengo el que me pides op ya lo tengo el que me das");
+        }
+
+    }
+
+    
+    /**
+     * similar al cromo usuario per solo nos pedira el numero
+     * @return 
+     */
+    private Cromo CromoCrearRepes() {
+        Scanner sc = new Scanner(System.in);
+        boolean num_introducido_ok = false;
+        int num = 0;
+        Cromo card = null;
+        while (!num_introducido_ok) {
+            try {
+                System.out.println("Pon el numero de cromo:");
+                num = sc.nextInt();
+                sc.nextLine();//eliminar buffer el return
+                num_introducido_ok = true;
+            } catch (InputMismatchException ex) {
+                System.out.println("Valor no es numerico");
+                sc.nextLine();
+                num_introducido_ok = false;
+            }
+        }
+        
+        try {
+            card = new Cromo(num);
+        } catch (Exception ex) {
+            System.out.println("numero cromo es negativo " + ex.getMessage());
+        }
+
+        return card; //retorna el card con el numero informado solamente, y la descripcion es por defecto la del constructor
+    }
+    
 }
+
