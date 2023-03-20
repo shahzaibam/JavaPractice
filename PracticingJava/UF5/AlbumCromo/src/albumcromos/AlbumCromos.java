@@ -89,7 +89,7 @@ public class AlbumCromos {
                 case 4://Listar
                     listadoAlbum(album);
                     System.out.println("repetidos---");
-                    listadoCromosRepetidos(album);
+//                    listadoCromosRepetidos(album);
                     break;
                 case 5: {
                     canviarCromos(album);
@@ -220,14 +220,14 @@ public class AlbumCromos {
         System.out.println("Cromos en el album " + album.getNumAlbum());
     }
 
-    public void listadoCromosRepetidos(CromoDAO album) {
-        List<Cromo> nuevos_album = album.getRepes();
-        for (Cromo cromo : nuevos_album) {
-            System.out.println(cromo);
-        }
-        System.out.println("------------------------");
-        System.out.println("Cromos en el album repetido " + album.getNumRepes());
-    }
+//    public void listadoCromosRepetidos(CromoDAO album) {
+//        List<Cromo> nuevos_album = album.getRepes();
+//        for (Cromo cromo : nuevos_album) {
+//            System.out.println(cromo);
+//        }
+//        System.out.println("------------------------");
+//        System.out.println("Cromos en el album repetido " + album.getNumRepes());
+//    }
 
     private void canviarCromos(CromoDAO album) {
         System.out.println("Que cromo quieres");

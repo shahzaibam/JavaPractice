@@ -27,6 +27,13 @@ public class HashMap_Practice {
         personal.put(119, new Empleado("bali"));
 
         personal.put(109, new Empleado("lucia"));
+        
+        System.out.println(personal.keySet());
+        
+//        boolean klk = personal.containsKey(119);
+//        
+//        System.out.println(klk);
+
 
         personal.put(100, new Empleado("ali")); // los que tienen el key igual a otro, se reemplazan los valores
 
