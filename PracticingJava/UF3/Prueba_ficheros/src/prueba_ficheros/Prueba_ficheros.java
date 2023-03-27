@@ -41,7 +41,7 @@ public class Prueba_ficheros {
                 try {
                     byte_leer = ficheroByte.leerByte();
                 } catch (IOException ex) {
-                    Logger.getLogger(Prueba_ficheros.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("no se ha podido leer" + ex.getMessage());
                 }
 
                 if (byte_leer == -1) {
@@ -50,7 +50,7 @@ public class Prueba_ficheros {
                     try {
                         ficheroEscrituraBt.escribirIntByte(byte_leer);
                     } catch (IOException ex) {
-                        Logger.getLogger(Prueba_ficheros.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("no se ha podido leer" + ex.getMessage());
                     }
                 }
 
@@ -63,10 +63,10 @@ public class Prueba_ficheros {
                 ficheroByte.cerrarFichero();
                 ficheroEscrituraBt.cerrarFichero();
             } catch (IOException ex) {
-                Logger.getLogger(Prueba_ficheros.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("fichero no encontradi" + ex.getMessage());
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("Ruta no encontrada");
+            System.out.println("Ruta no encontrada" + ex.getMessage());
         }
 
         System.out.println(contador);
