@@ -174,11 +174,33 @@ public class CategoryPanel extends JPanel {
         JOptionPane.showMessageDialog(this, error, "Error", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    
     /**
      * search a category
      */
     private void doSearch() {
+        Category add = categoryFromFields();
+
+        String code = add.getCode();
+
+
+        try {
+            add = model.findCategoryByCode(code);
+            if (add != null) {
+                messageOK("Category found", "Result");
+                System.out.println(add.getId());
+                
+                String id = String.valueOf(add.getId());
+                lbId.setText(id);
+                
+                tfCode.setText(add.getCode());
+                tfName.setText(add.getName());
+
+            } else {
+                displayErrorDialog("Error category not found");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
